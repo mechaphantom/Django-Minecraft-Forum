@@ -1,0 +1,491 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+    }
+    
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    #product:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+
+  
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #555;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: darkgreen;
+}
+</style>
+
+<br>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="https://i.hizliresim.com/xjjTHu.png" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://i.hizliresim.com/RfRPIM.png" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://i.hizliresim.com/HRKKe0.png" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+<hr>
+
+<h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color: darkgreen; color: white; text-align: center;">
+    SHOP BY PRODUCTS
+</h2>
+<br>
+
+<div class="row" style="margin-left: 30px;">
+    <div class="column">
+      <a href="#tshirts"><img id="product" src="https://i.hizliresim.com/Hw1hSi.png" alt="tshirts" style="width: 300px; height: 300px;"></a>
+    </div>
+    <div class="column">
+      <a href="#games"><img id="product" src="https://i.pinimg.com/originals/db/b6/f2/dbb6f23991e4c095b7420c376596d18f.png" alt="tshirts" style="width: 300px; height: 300px;"></a>
+      </div>
+    <div class="column">
+      <a href="#bedding"><img id="product" src="https://i.hizliresim.com/GIwNGY.png" alt="bedding" style="width: 300px; height: 300px;"></a>
+    </div>
+    <div class="column">
+      <a href="#mugs"><img id="product" src="https://i.hizliresim.com/MO8pOn.png" alt="mugs" style="width: 300px; height: 300px;"></a>
+    </div>
+    <div class="column">
+      <a href="#bags"><img id="product" src="https://i.hizliresim.com/ZSGuhA.png" alt="bags" style="width: 300px; height: 300px;"></a>
+    </div>
+    <div class="column">
+      <a href="#phonecases"><img id="product" src="https://i.hizliresim.com/jvThld.png" alt="bags" style="width: 300px; height: 300px;"></a>
+    </div>
+</div>
+
+<br><br>
+
+<!-- GAMES SECTION -->
+<h2 id="games" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color: green; color: white; text-align: center;">
+  MINECRAFT GAMES
+</h2>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://image.api.playstation.com/vulcan/img/cfn/11307x4B5WLoVoIUtdewG4uJ_YuDRTwBxQy0qP8ylgazLLc01PBxbsFG1pGOWmqhZsxnNkrU3GXbdXIowBAstzlrhtQ4LCI4.png" alt="mc" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">MINECRAFT</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          PS4: ₺86 | XBOX: ₺85 | PC: ₺85
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://image.api.playstation.com/vulcan/img/rnd/202006/0813/ZbBYmmql1RNvvqQ5rkHTC7c6.png" alt="dungeons" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">MINECRAFT DUNGEONS</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          PS4: ₺84 | XBOX: ₺85 | PC: ₺85
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://www.fabrikatik.com/wp-content/uploads/2021/02/Flames_of_the_Nether_fabrikatikcom-1200x675.png" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">FLAMES OF THE NETHER</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          PS4: ₺43 | XBOX: ₺17 | PC: ₺17
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<hr>
+
+<!-- T-SHIRT SECTION -->
+<h2 id="tshirts" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color: green; color: white; text-align: center;">
+  T-SHIRTS
+</h2>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-PANDA-100011-MF_1800x1800.png?v=1612792084" alt="mc" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Panda Men Short Sleeve T-Shirt</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          XS, S, M, L, XL, XXL, XXXL | $19.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCJM-ALXBLCK-100012-Turq-MF_1800x1800.png?v=1614103568" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Alex on Block Women's Short Sleeve T-Shirt</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          XS, S, M, L, XL, XXL, XXXL | $19.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-SCBA-100016-MF_1800x1800.png?v=1612792091" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Kids Short Sleeve T-Shirt</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          XS, S, M, L, XL | $14.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>  
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-DMDSWRD-100011-MF_1800x1800.png?v=1612791964" alt="dungeons" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Sword Men Short Sleeve T-Shirt</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          XS, S, M, L, XL, XXL, XXXL | $19.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-FLYSTV-100012-MF_1800x1800.png?v=1612818304" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Flying Steve Women's Short Sleeve T-Shirt</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          XS, S, M, L, XL, XXL, XXXL | $19.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCFP-ENDRGN-100139-Front-MF_1800x1800.png?v=1612907165" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Ender Dragon Kids Short Sleeve T-Shirt</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          XS, S, M, L, XL | $36.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>  
+</div>
+<hr>
+
+<!-- BEDDING SECTION -->
+<h2 id="bedding" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color: green; color: white; text-align: center;">
+  BEDDING
+</h2>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/32281253387-1_1800x1800.jpg?v=1611683467" alt="mc" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Creeper Bed Set</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          Twin: $64.95 | Full: $79.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/32281217228-1_1800x1800.jpg?v=1611683587" alt="dungeons" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Isometric Bed Set</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          Twin: $64.95 | Full: $79.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/32281406479-1_1800x1800.jpg?v=1611683825" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Diamond Pillowcase </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          $11.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<hr>
+
+<!-- MUGS SECTION -->
+<h2 id="mugs" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color: green; color: white; text-align: center;">
+  MUGS
+</h2>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-ENDRFC-100040-11oz-Left-MF_1800x1800.png?v=1612468445" alt="mc" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Ender Eyes Black Mug </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          $14.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-TNT-100040-11oz-mug-Left-MF_1800x1800.png?v=1612793288" alt="dungeons" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft TNT Block White Mug </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          $14.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-DUCKFC-100040-11oz-left-MF_1800x1800.png?v=1614203653" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Chicken Face White Mug </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          $14.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<hr>
+
+<!-- BAGS SECTION -->
+<h2 id="bags" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color: green; color: white; text-align: center;">
+  BAGS
+</h2>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/013244356772-2_1800x1800.jpg?v=1611078189" alt="mc" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Dome Backpack  </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          $44.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-ENDRFC-100145-Back-MF_1800x1800.png?v=1612793959" alt="dungeons" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Ender Eyes Tote Bag  </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          $29.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-DYNGHT-100145-Front-MF_1800x1800.png?v=1612462744" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Key Art Tote Bag  </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          $29.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<hr>
+
+<!-- PHONE CASES SECTION -->
+<h2 id="phonecases" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color: green; color: white; text-align: center;">
+  PHONE CASES
+</h2>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/0266/4841/2351/products/MCIC-KEY-100172-Galaxy-S20-MF_1800x1800.png?v=1612796524" alt="mc" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Key Art Phone Case </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          All but models lower than Iphone 11. | $16.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://fabrixcases.com/wp-content/uploads/Minecraft-iPhone-Cases-17541.jpg" alt="dungeons" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Creeper Phone Case </h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          All but models lower than Iphone 11. | $16.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://fabrixcases.com/wp-content/uploads/Minecraft-iPhone-Cases-17525.jpg" alt="fotn" style="width: 360px; height: 300px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px;">Minecraft Sword Phone Case</h2>
+        <p style="text-align: center; color: white; background-color: darkgreen; font-size: 15px;">
+          All but models lower than Iphone 11. | $16.95
+        </p>
+        <p><button class="button">SATIN AL</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+{% endblock body %}
+

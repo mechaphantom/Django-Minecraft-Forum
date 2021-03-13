@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<br>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-8" style="text-align: center; font-family: Times New Roman, Times, serif; background-color: green; color: white;">MINECRAFT EVRENİNE HOŞGELDİNİZ!</h1>
+      <p class="lead" style="text-align: center; font-family: Times New Roman, Times, serif; background-color: green; color: white;">BU SAYFADA OYUNLARIMIZI İNCELEYEBİLİR, DİLERSENİZ SATIN ALABİLİRSİNİZ.</p>
+    </div>
+  </div>
+<br> <br> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url("https://i.hizliresim.com/pDtDl1.png");
+  }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: green;
+}
+</style>
+
+<!--
+  background-image: url("https://i.hizliresim.com/fv1FEi.png");  SAYDAM ARKA PLAN GÖRÜNTÜSÜ (YOSUNLU TAŞ)
+-->
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="
+      https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg" 
+      alt="mc" style="width: 360px; height: 450px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: Times New Roman, Times, serif;">MINECRAFT</h2>
+        <p class="title" style="font-family: Times New Roman, Times, serif;">Dünyayı kendi istediğin gibi şekillendir!</p>
+        <p>
+            Sürekli değişen Minecraft dünyasında inşa ederek, kazarak, canavarlarla savaşarak ve keşfederek geçireceğin sonsuz fırsatlara sahip bir maceraya hazırlan. Düzenli güncellemelerimiz sayesinde her zaman keşfedilmeyi bekleyen yeni araçlar, yerler ve alanlar var. 
+        </p>
+        <a href="/shop/#games"><p><button class="button">SATIN AL</button></p></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://store-images.s-microsoft.com/image/apps.2957.14089602043039621.efe46bfe-4de2-4879-a22b-f3b08650221c.dbf4f170-baf6-45ca-a7d8-6fadaba1e8b1" 
+      alt="mc_dungeons" style="width: 360px; height: 450px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: Times New Roman, Times, serif;">MINECRAFT DUNGEONS</h2>
+        <p class="title" style="font-family: Times New Roman, Times, serif;">BİRLİK OL. SAVAŞ. HAYATTA KAL.</p>
+        <p>
+            Zindanlarda tek başına tehlikeye meydan oku ya da arkadaşlarınla birlik ol! Klasik zindan tarama oyunlarından esinlenilerek tasaralanan ve Minecraft evreninde geçen yepyeni bir aksiyon macera oyunu!
+        </p>
+        <a href="/shop/#games"><p><button class="button">SATIN AL</button></p></a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="https://www.minecraft.net/content/dam/games/education-edition/key-art/games_subnav_educationedition-300x465.jpg" 
+      alt="mc_education" style="width: 360px; height: 450px;">
+      <div class="container">
+        <h2 style="text-align: center; font-family: Times New Roman, Times, serif;">MINECRAFT EDUCATION EDITION</h2>
+        <p class="title" style="font-family: Times New Roman, Times, serif;">New Minecraft Hour of Code</p>
+        <p>
+            Sürükleyici bir dijital ortamda yaratıcılığı, işbirliğini ve problem çözmeyi teşvik eden oyun tabanlı bir öğrenme platformu. 115'ten fazla ülkedeki eğitimciler müfredat genelinde Minecraft: Education Edition kullanıyor! 
+        </p>
+        <a href="https://education.minecraft.net/get-started" target="_blank"><p><button class="button">İNDİR</button></p></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

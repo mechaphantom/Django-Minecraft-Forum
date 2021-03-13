@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+<div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+      <!-- Title -->
+      <h1 class="mt-4">{{article.title}}</h1>
+      <hr>
+
+      <!-- Post Content -->
+      <p class="lead">
+        {% if article.header_image %}
+        <!-- {{article|safe}} {{article.content}} -->
+          <img src="{{  article.header_image.url  }}" >
+        {% endif %}
+          {{article.content|safe}}
+      </p>
+      <hr>
+
+      <div class="card w-100">
+        <div class="card-body">
+          <h5 class="card-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            {% if article.author.profile.profile_pic %}
+              <table>
+                <tr>
+                  <td>
+                    <img src="{{article.author.profile.profile_pic.url}}" style="height: 100px; width: 100px;">
+                  </td>
+                  <td>
+                    <b>{{article.author.username}}</b> tarafından <b>{{article.created_date}}</b> tarihinde yayımlandı.
+                  </td>
+                </tr>
+              </table>
+            {% else %}
+              <table>
+                <tr>
+                  <td>
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" style="height: 100px; width: 100px;">
+                  </td>
+                  <td>
+                    <b>{{article.author.username}}</b> tarafından <b>{{article.created_date}}</b> tarihinde yayımlandı.
+                  </td>
+                </tr>
+              </table>
+            {% endif %}
+
+          </h5>
+          <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        </div>
+      </div>
+      <hr>
+      {% if request.user.is_authenticated %}
+        <form action="{% url 'article:like_post' article.id %}" method="POST">
+          {% csrf_token %}
+        
+          {% if liked %}
+            <button type="submit" class="btn btn-danger ">
+            <i class="bi bi-hand-thumbs-down"></i> Dislike
+            </button>
+          {% else %}
+            <button type="submit" class="btn btn-primary ">
+            <i class="bi bi-hand-thumbs-up"></i> Like
+            </button>
+          {% endif %}
+        </form>
+        <hr>
+      {% else %}
+
+      {% endif %}
+      
+      <!--
+      <form action="{% url 'article:like_post' article.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ article_id }}" class="btn btn-primary btn-sm">
+          <i class="bi bi-hand-thumbs-up"></i> Like
+        </button> - {{ total_likes }}
+      </form>
+      -->
+      
+      
+      {% if request.user.is_authenticated %}
+        <!-- Comments Form -->
+        <div class="card my-4">
+          <h5 class="card-header">Yorum Yapın</h5>
+          <div class="card-body">
+            <form method="POST" action="{% url 'article:comment' article.id %}">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="formGroupExampleInput">Kullanıcı Adınız:</label>
+                <select name="comment_author" type="text" class="form-control" id="formGroupExampleInput">
+                  <option>{{user.username}}</option>
+                </select>
+                <!-- <input name="comment_author" type="text" class="form-control" id="formGroupExampleInput" value="{{user.username}}"> -->
+                <!-- <p> <b>{{user.username}}</b> kullanıcısı olarak yorum yapıyorsunuz.</p> -->
+              </div>
+
+              <div class="form-group">
+                <label for="formGroupExampleInput">Yorumunuz:</label>
+                <textarea name="comment_content" class="form-control" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Yorum Yap</button>
+            </form>
+          </div>
+        </div>
+      {% else %}
+        <div class="alert alert-danger" role="alert">
+          Gönderilere yorum yapabilmek için kayıt olmalısınız. Hesabınız varsa giriş yapınız.
+        </div>
+      {% endif %}
+<hr>
+      <h4 style="font-weight: bold;">Yorumlar</h4>
+      <hr>
+      {% if comments %}
+           
+            {% for comment in comments %}
+              <div class="media mb-4">
+                <!--
+                {% if user.profile.profile_pic %}
+                  <img src="{{comment.comment_author.id.profile.profile_pic.url}}" style="width: 75px; height: 75px;">
+                {% else %}
+                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                {% endif %}
+                -->
+
+                <div class="media-body" style="margin-left: 10px;">
+                  <h5 style="font-weight: bold;" class="mt-0"> {{comment.comment_author}}</h5> 
+                   {{comment.comment_content}} | {{comment.comment_date}}
+                </div>
+              </div>
+            <hr>
+            {% endfor %}
+
+      {% else %}
+      <div class="alert alert-warning">
+          Bu gönderiye henüz bir yorum yapılmamış.
+      </div>
+      {% endif %}
+    </div>
+    <!-- Comment Formu buraya almayı dene. -->
+  </div>
+
+{% endblock body %}

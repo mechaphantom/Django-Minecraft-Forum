@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/32/Minecraft_logo.svg/1200px-Minecraft_logo.svg.png" width="150px" height="30px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+<style>
+  #others:hover{
+    color: lightslategray;
+  }
+</style>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'games' %}">OYUNLAR</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'article:articles' %}">FORUM</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'shop' %}">DÜKKAN</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">İLETİŞİM</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        
+        {% if request.user.is_authenticated %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'article:dashboard' %}" id="others" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Profil Sayfası</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'user:logout' %}" id="others" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Çıkış Yap</a>
+        </li>  
+               
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'user:register' %}" id="others" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Kayıt Ol</a>
+        </li>
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'user:login' %}" id="others" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Giriş Yap</a>
+        </li>   
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  

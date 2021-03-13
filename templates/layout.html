@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+    <link rel="stylesheet" href="/static/style.css">
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Footer için gerekli stylesheet'ler -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ---------------------------------- -->
+
+
+    <title>Minecraft Community</title>
+    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAyVBMVEVMr1AAAAB2/wP///9PtU1i2TRKrFJPtVNJqlMdQh5u7x9z+hBczj16/wMtYQFawgI6hT0OIQ8xcTRNpQJo5CoWMAFBrEVWwkW02bXL5Mxs/wDm/9ybzpxErEiC/zAwMDClpaU+hgKGhobh7+HCwsIqWwts6yQJFAtl3zQ1ejS42bvQ49Q6pUZp2UFy9x8mVR5Clj1gzwMYQBo4Vzjv/+QRJgxPrSBGnC4cJh01hTlHmxRAjSIscC9khWWSm5IvZgFmZmatvq0ANQDM+8fAAAACtUlEQVR4nO3dyXLTQBhF4UbR5EF2DInDPNtxgBgCmDGM7/9QsGB7r0s/1SmDz9mmpO5PsjfutJSKYCd1ijS/eaC7NQ+dc0sIEfYMYYYQIuwZwgwhRNgzhBlCiLBnCDOEEGHPEGYIIcKeIcwQwr0VdietzuDnz4zw+YvQOVMyc2lTGatZjmTFWE+nPr9v0uccLQ2xLMyBW++xumpDc4OdsAp+aIatEXbmwP9D6A5EiBAhQoQIESJEiBAhQoQIESJEiBAhQoR/hO4n/0ZXrztdWGjOua71ZMrbpjTUrV8OdIuJ7pW+3FZ4YU660FN5/ebtHZ1be+qOr8U6bGLCaXC8B2Y96wAhQoQIESJEiBAhQoQIESJEiBAhQoQIESL8G2Etayv9f/VdHuFYd74JjvjuSFeZAd8Hx/tw15T05a6bWXDEqdn/ULVyvHQYHG9W3tPJL8zv4kLz0a/0ylsTFurvvQ8hQoQIESJEiBAhQoQIESJEiBAhQoQI90pofvNOp1Gh2TexSnrfxMfgeKdWUelWZ9d1n27E+qxPefnloe7rpT7wbGUUdu2p1Nfb7pl5FLwXj80S0pO5nMuW50SZvxWl/nC7fU+ZhHoyft8TQoQIESJEiBAhQoQIESJEiBAhQoQIESLcKuxKs29iaPZN7JbQbI04MlsjxlPTt6Dw+1Pdj7DQrNq07v4ugopoP80KWvh5be3ICCdXLBwgRIgQIUKECBEiRIgQIUKECBEiRIgQIUKE8Xc610vz7our/lXfCtfmLR1OmGrzqvPBDgn9u9WDNTslzBFChAgRIkSIECFChAgRIkSIECFChAgRIvznhKUpKtwc6zYznXvy1iA40bTlOVEx4UWGZ31NzB6dwi5OuKW3qDDH89qMsBghRIgQIUKECBEiRIgQIUKECBEiRIgQIUKE+yD8BZMPZT466N5rAAAAAElFTkSuQmCC">
+</head>
+
+<style>
+.footer-basic {
+  padding:40px 0;
+  background-color:#ffffff;
+  color:#4b4c4d;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:25px;
+}
+
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
+</style>
+
+<body>
+    {% include "includes/navbar.html" %}
+
+    <div class="container">
+        <br>
+        {% if messages %}
+   
+            {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+  
+        {% endif %}
+        
+        {% block body %}
+
+        {% endblock body %}
+    </div>
+
+    <br><br><br>
+
+    <div class="footer-basic">
+        <footer>
+            <div class="social">
+              <a href="https://www.instagram.com/minecraft/" target="_blank"><i class="icon ion-social-instagram"></i></a>
+              <a href="https://www.youtube.com/Minecraft" target="_blank"><i class="icon ion-social-youtube"></i></a>
+              <a href="https://twitter.com/minecraft" target="_blank"><i class="icon ion-social-twitter"></i></a>
+              <a href="https://www.facebook.com/minecraft" target="_blank"><i class="icon ion-social-facebook"></i></a>
+            </div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/">Anasayfa</a></li>
+                <li class="list-inline-item"><a href="/games">Oyunlar</a></li>
+                <li class="list-inline-item"><a href="/articles">Forum</a></li>
+                <li class="list-inline-item"><a href="/shop">Mağaza</a></li>
+                <li class="list-inline-item"><a href="/contact">İletişim</a></li>
+            </ul>
+            <p class="copyright">Mojang © 2009-2021. "Minecraft", Mojang Synergies AB'nin ticari bir markasıdır.</p>
+        </footer>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+
+<!-- Footer için gerekli script'ler -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

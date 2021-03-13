@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<!-- <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+<style>
+body{
+  background-image: url("https://i.hizliresim.com/CgLZfO.png");
+  background-position: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+<h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color:silver; color: black; text-align: center;">
+  MINECRAFT TOPLULUK FORMU
+</h2>
+<br>
+
+<form class="example" style="margin:auto;max-width:300px">
+  {% csrf_token %}
+  <input type="text" name="keyword" placeholder="Ara...">
+  <button type="submit"><i class="bi bi-search"></i></button>
+  <!--
+    <button type="submit"><i class="fas fa-search"></i></button>
+  -->
+</form>
+<br>
+
+
+{% if articles %}
+
+<table class="table table-hover table-secondary">
+    <thead>
+      <tr style="text-align: center;">
+        <th scope="col">Başlık</th>
+        <th scope="col">Kullanıcı</th>
+        <th scope="col">Oluşturulma Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr style="text-align: center; font-weight: bold;">
+            <td><a href="/articles/article/{{article.id}}">{{article.title}}</a></td>
+            <td>{{article.author.username}}</td>
+            <td>{{article.created_date}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
+
+{% endblock body %}

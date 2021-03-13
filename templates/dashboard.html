@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% block body %}
+
+<style>
+  body{
+  background-image: url("https://i.hizliresim.com/eDp3ZI.png");
+  }
+</style>
+<!--
+  https://i.hizliresim.com/jH67hS.png  OPAK ARKA PLAN GÖRÜNTÜSÜ
+-->
+<h2 style="color: white; text-shadow: 1px 1px red; font-weight: bold;">Hoşgeldiniz, {{request.user.username}}</h2>
+<hr>
+
+<div class="jumbotron">
+  <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; text-align: center;">
+    {{user.profile.bio}}
+  </p>
+  <hr>
+
+  <table>
+    <tr>
+      <td>
+        <p class="lead"><b>Kullanıcı Adı:</b> {{request.user.username}}</p> <br>
+        <p class="lead"><b>E-Mail Adresi:</b> {{request.user.email}}</p> <br>
+        <p class="lead"><b>Katılma Tarihi:</b> {{request.user.date_joined}}</p>
+      </td>
+      {% if user.profile.profile_pic %}
+      <td>
+        <img src="{{user.profile.profile_pic.url}}" style="width: 300px; height: 300px; margin-left: 300px;"/>
+      </td>
+      {% else %}
+      <td>
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" style="width: 300px; height: 300px; margin-left: 300px;"/>
+      </td>
+      {% endif %}      
+    </tr>
+  </table>
+<br>
+  <a class="btn btn-info" href="/user/edit">Profili Düzenle</a>
+</div>
+
+<hr>
+<h3 style="color: white; text-shadow: 1px 1px red; font-weight: bold;">Kontrol Paneli</h3>
+<hr>
+<a class="btn btn-primary" href="/articles/addarticle">Gönderi Oluştur</a>
+<br> <br>
+
+{% if articles %}
+<table class="table table-hover table-dark">
+    <thead>
+      <tr style="text-align: center;">
+        <th scope="col">id</th>
+        <th scope="col">Başlık</th>
+        <!--
+        <th scope="col">Kullanıcı</th>
+        -->
+        <th scope="col">Oluşturulma Tarihi</th>
+        <th scope="col">Gönderiyi Düzenle</th>
+        <th scope="col">Gönderiyi Sil</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr style="text-align: center; font-weight: bold;">
+            <th scope="row">{{article.id}}</th>
+            <td><a href="/articles/article/{{article.id}}">{{article.title}}</a></td>
+            <!--
+            <td>{{article.author.username}}</td>
+            -->
+            <td>{{article.created_date}}</td>
+            <td><a href="/articles/update/{{article.id}}" class="btn btn-primary">Düzenle</a></td>
+            <td><a href="/articles/delete/{{article.id}}" class="btn btn-danger">Sil</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br> <br>
+{% else %}
+<div class="alert alert-warning">
+    Hiç gönderiniz bulunmuyor!
+</div>
+{% endif %}
+
+
+
+{% endblock body %}
