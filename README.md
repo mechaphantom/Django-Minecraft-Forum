@@ -55,7 +55,7 @@ That'a an example. When you click T-Shirt, you will be directed to the T-Shirt s
 ![dükkan](https://user-images.githubusercontent.com/57845882/111027774-71909080-8403-11eb-9b3f-240a731ed50a.png)
 
 ## Contact (İletişim)
-İletişim sayfasındaki iletişim formunu doldurarak bize ulaşabilirsiniz. Bu forma mail adresinizi, konuşmak istediğiniz konuyu ve içeriği yazıp gönder butonuna tıklayarak bize mail yoluyla ulaşabilirsiniz.
+You can contact us by filling out the contact form on the contact page. You can contact us via e-mail by typing your e-mail address, the topic and content you want to talk about in this form and clicking the send button. 
 
 ![twitter4](https://user-images.githubusercontent.com/57845882/111027802-984ec700-8403-11eb-8b0d-d581a6d2e37f.png)
 
